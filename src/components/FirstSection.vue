@@ -69,7 +69,10 @@
           </div>
           <div class="mobi-rigth">
             <p class="cash">USD {{ crypto.current_price }}</p>
-            <div class="percent pp">
+            <div
+              class="percent pp"
+              :class="{ red: crypto.price_change_percentage_24h < 0 }"
+            >
               <p>
                 {{ crypto.price_change_percentage_24h.toFixed(2) }}
               </p>
