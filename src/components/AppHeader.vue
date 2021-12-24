@@ -1,7 +1,7 @@
 <template>
   <div class="con">
     <header>
-      <nav id="nav">
+      <nav id="nav" @mouseleave="hideLearn">
         <router-link class="link" to="/">
           <img src="../assets/coinlogo.svg" alt="coinbase-logo" />
         </router-link>
@@ -9,10 +9,10 @@
           <li>
             <router-link to="/prices">Prices</router-link>
           </li>
-          <li>
+          <li @mouseover="toggleShowLearn">
             <router-link to="/">Learn</router-link>
           </li>
-          <li>
+          <li @mouseover="toggleShowIndi">
             <router-link to="/">Individuals</router-link>
           </li>
           <li><router-link to="/">Businesses</router-link></li>
@@ -35,11 +35,92 @@
         ></i>
       </nav>
     </header>
+    <div v-if="showLearn" class="learn-section">
+      <div class="learn-container">
+        <div class="learn-con">
+          <div class="chev">
+            <i class="fas fa-chevron-right fa-sm"></i>
+            <p>Tips and Tutorials</p>
+          </div>
+          <div>
+            <i class="fas fa-chevron-right fa-sm"></i>
+            <p>Crypto basics</p>
+          </div>
+          <div>
+            <i class="fas fa-chevron-right fa-sm"></i>
+            <p>Market updates</p>
+          </div>
+        </div>
+        <div>
+          <p class="cryt">
+            Crypto questions, answered Guides and explainers for your crypto
+            questions
+          </p>
+          <p class="articles">See all articles</p>
+        </div>
+      </div>
+    </div>
+    <div v-if="showIndi" class="indi-section">
+      <div class="indi-container">
+        <div class="items">
+          <div class="indimag">
+            <img src="../assets/coinbase.svg" alt="" />
+            <div>
+              <h3>Buy and sell</h3>
+              <p>Buy,sell and use crypto</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/earn.svg" alt="" />
+            <div>
+              <h3>Earn</h3>
+              <p>Learn and Earn crypto</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/pri.svg" alt="" />
+            <div>
+              <h3>Private Client</h3>
+              <p>For trusts, family offices, UHNWIs</p>
+            </div>
+          </div>
+        </div>
+        <div class="items2">
+          <div class="indimag">
+            <img src="../assets/wallet.svg" alt="" />
+            <div>
+              <h3>Wallet</h3>
+              <p>The best self-hosted crypto wallet</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/card.svg" alt="" />
+            <div>
+              <h3>Card</h3>
+              <p>Spend crypto, earn crypto rewards</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/borrow.svg" alt="" />
+            <div>
+              <h3>Borrow</h3>
+              <p>Borrow cash using Bitcoin as collateral</p>
+            </div>
+          </div>
+        </div>
+        <div class="items">
+          <p class="cryt">
+            Crypto questions, answered Guides and explainers for your crypto
+            questions
+          </p>
+          <p class="articles">See all articles</p>
+        </div>
+      </div>
+    </div>
     <div class="drop-section" v-if="show">
       <div class="drop-container">
         <div class="drop">
           <p>Prices</p>
-          <!-- <i class="fas fa-chevron-down"></i> -->
         </div>
         <div class="drop">
           <p>Learn</p>
@@ -75,11 +156,24 @@ export default {
   data() {
     return {
       show: false,
+      showLearn: false,
+      showIndi: false,
     };
   },
   methods: {
     toggleShow() {
       this.show = !this.show;
+    },
+    toggleShowLearn() {
+      this.showLearn = true;
+      this.showIndi = false;
+    },
+    toggleShowIndi() {
+      this.showIndi = true;
+    },
+    hideLearn() {
+      this.showLearn = false;
+      this.showIndi = false;
     },
   },
 };
@@ -210,6 +304,10 @@ li:hover {
   border-radius: 4px;
   color: rgb(0, 82, 255);
 }
+.learn-section,
+.indi-section {
+  display: none;
+}
 @media only screen and (min-width: 992px) {
   .con {
     position: -webkit-sticky;
@@ -293,6 +391,81 @@ li:hover {
     border-radius: 4px;
     color: white;
     margin-left: 25px;
+  }
+  .learn-section {
+    display: flex;
+    background-color: white;
+    height: 180px;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+    -webkit-box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+    -moz-box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+  }
+  .learn-container {
+    display: flex;
+    width: 50%;
+    margin-left: 500px;
+  }
+  .learn-con div {
+    display: flex;
+    margin-right: 100px;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .cryt {
+    width: 250px;
+    line-height: 1.4;
+  }
+  .fa-chevron-right {
+    margin-right: 10px;
+  }
+  .articles {
+    color: rgb(0, 82, 255);
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .indi-section {
+    display: flex;
+    background-color: white;
+    height: 220px;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    left: 0;
+    box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+    -webkit-box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+    -moz-box-shadow: -1px 2px 5px 0px rgba(227, 218, 218, 0.67);
+  }
+  .indi-container {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    justify-content: space-between;
+  }
+  .indimag {
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .items {
+    width: 30%;
+  }
+  .items2 {
+    width: 35%;
+  }
+  .indimag img {
+    width: 12%;
+    margin-right: 10px;
+  }
+  .indimag p {
+    color: rgb(172, 169, 169);
+    font-weight: 400;
+  }
+  .indimag h3 {
+    font-size: 16px;
   }
 }
 </style>
