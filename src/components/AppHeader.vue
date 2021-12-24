@@ -232,10 +232,12 @@ export default {
     toggleShowIndi() {
       this.showIndi = true;
       this.showBusiness = false;
+      this.showLearn = false;
     },
     toggleShowBus() {
       this.showBusiness = true;
       this.showIndi = false;
+      this.showLearn = false;
     },
     hideLinks() {
       this.showLearn = false;
