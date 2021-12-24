@@ -1,7 +1,7 @@
 <template>
   <div class="con">
     <header>
-      <nav id="nav" @mouseleave="hideLearn">
+      <nav id="nav" @mouseleave="hideLinks">
         <router-link class="link" to="/">
           <img src="../assets/coinlogo.svg" alt="coinbase-logo" />
         </router-link>
@@ -237,7 +237,7 @@ export default {
       this.showBusiness = true;
       this.showIndi = false;
     },
-    hideLearn() {
+    hideLinks() {
       this.showLearn = false;
       this.showIndi = false;
       this.showBusiness = false;
