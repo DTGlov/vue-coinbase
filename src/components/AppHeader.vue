@@ -15,7 +15,9 @@
           <li @mouseover="toggleShowIndi">
             <router-link to="/">Individuals</router-link>
           </li>
-          <li><router-link to="/">Businesses</router-link></li>
+          <li @mouseover="toggleShowBus">
+            <router-link to="/">Businesses</router-link>
+          </li>
           <li><router-link to="/">Developers</router-link></li>
           <li><router-link to="/">Company</router-link></li>
         </ul>
@@ -117,6 +119,63 @@
         </div>
       </div>
     </div>
+    <div v-if="showBusiness" class="indi-section">
+      <div class="indi-container">
+        <div class="items">
+          <div class="indimag">
+            <img src="../assets/prime.svg" alt="" />
+            <div>
+              <h3>Prime</h3>
+              <p>The prime brokerage platform</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/custody.svg" alt="" />
+            <div>
+              <h3>Custody</h3>
+              <p>Institutional-grade offline storage</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/exchange.svg" alt="" />
+            <div>
+              <h3>Exchange</h3>
+              <p>Direct access to our exchange</p>
+            </div>
+          </div>
+        </div>
+        <div class="items2">
+          <div class="indimag">
+            <img src="../assets/commerce.svg" alt="" />
+            <div>
+              <h3>Commerce</h3>
+              <p>Accept crypto from anyone</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/asset.svg" alt="" />
+            <div>
+              <h3>Asset Hub</h3>
+              <p>List your assets on Coinbase</p>
+            </div>
+          </div>
+          <div class="indimag">
+            <img src="../assets/analytics.svg" alt="" />
+            <div>
+              <h3>Analytics</h3>
+              <p>Power your crypto compliance</p>
+            </div>
+          </div>
+        </div>
+        <div class="items">
+          <p class="cryt">
+            Built for businesses and institutions Crypto solutions for
+            institutional investors
+          </p>
+          <p class="articles">See all articles</p>
+        </div>
+      </div>
+    </div>
     <div class="drop-section" v-if="show">
       <div class="drop-container">
         <div class="drop">
@@ -158,6 +217,7 @@ export default {
       show: false,
       showLearn: false,
       showIndi: false,
+      showBusiness: false,
     };
   },
   methods: {
@@ -167,13 +227,20 @@ export default {
     toggleShowLearn() {
       this.showLearn = true;
       this.showIndi = false;
+      this.showBusiness = false;
     },
     toggleShowIndi() {
       this.showIndi = true;
+      this.showBusiness = false;
+    },
+    toggleShowBus() {
+      this.showBusiness = true;
+      this.showIndi = false;
     },
     hideLearn() {
       this.showLearn = false;
       this.showIndi = false;
+      this.showBusiness = false;
     },
   },
 };
@@ -461,7 +528,7 @@ li:hover {
     margin-right: 10px;
   }
   .indimag p {
-    color: rgb(172, 169, 169);
+    color: rgb(116, 115, 115);
     font-weight: 400;
   }
   .indimag h3 {

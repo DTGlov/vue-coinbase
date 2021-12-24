@@ -31,7 +31,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr v-for="crypto in getCrypto.slice(20, 40)" :key="crypto.id">
+            <tr v-for="crypto in getCrypto.slice(10, 30)" :key="crypto.id">
               <td>
                 <div class="tab">
                   <figure>
