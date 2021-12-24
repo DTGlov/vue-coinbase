@@ -102,6 +102,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 20px;
 }
 .top-input {
   display: none;
@@ -159,6 +160,7 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0;
   }
   .top-input {
     display: block;
