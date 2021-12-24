@@ -65,7 +65,7 @@
               </td>
               <td>USD {{ crypto.high_24h.toFixed(2) }}M</td>
               <td>USD {{ crypto.low_24h.toFixed(2) }}</td>
-              <td>{{ crypto.ath }}M</td>
+              <td>{{ crypto.ath.toFixed(2) }}M</td>
               <td><button class="trade-btn">Trade</button></td>
             </tr>
           </tbody>
