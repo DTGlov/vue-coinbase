@@ -420,7 +420,7 @@ li:hover {
   }
   .link-wrapper {
     display: flex;
-    margin-left: 150px;
+    margin-left: 120px;
   }
 
   .link-wrapper li {

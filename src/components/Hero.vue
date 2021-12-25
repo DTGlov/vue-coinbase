@@ -288,7 +288,7 @@ export default {
   }
 
   .inbtn input {
-    width: 230px;
+    width: 240px;
   }
   .cta-btn {
     width: 200px;
